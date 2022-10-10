@@ -1,0 +1,98 @@
+
+
+<div class="card-top container-fluid">
+  <div class="container d-flex">
+    <div class="item" (click)="showCategory('top_offers')">
+      <a>
+        <img
+          class="img-container"
+          src="https://media.istockphoto.com/vectors/congrats-poster-with-open-gift-box-ribbons-and-confetti-isolated-on-vector-id1256869305?k=20&m=1256869305&s=612x612&w=0&h=CVUOfkRUtcMpTk7amjfvU0W88BvaineL3M2WtuTfoEI="
+          alt=""
+        />
+        <h4>Top Offers</h4>
+      </a>
+    </div>
+    <div class="item" (click)="showCategory('laptop')">
+      <a>
+        <img class="img-container" src="assets/imac.jpg" alt="" />
+        <h4>Laptop</h4>
+      </a>
+    </div>
+    <div class="item" (click)="showCategory('mobile_phones')">
+      <a>
+        <img class="img-container" src="assets/iphone13.jpg" alt="" />
+        <h4>Mobile Phones</h4>
+      </a>
+    </div>
+    <div class="item" (click)="showCategory('fashion')">
+      <a>
+        <img
+          class="img-container"
+          src="https://media.istockphoto.com/photos/stylish-man-wearing-sunglasses-and-white-shirt-city-life-picture-id1201024668?k=20&m=1201024668&s=612x612&w=0&h=dz6O1Ut8Ro5OWSpaHUL6nkEgtqCwSOXarl0xelwBUP4="
+          alt=""
+        />
+        <h4>Fashion</h4>
+      </a>
+    </div>
+    <div class="item" (click)="showCategory('Watch')">
+      <a>
+        <img class="img-container" src="assets/iwatch7.jpg" alt="" />
+        <h4>Watches</h4>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div>
+
+</div>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <ng-container *ngFor="let item of productList">
+      <div class="card col-md-2">
+        <i
+          class="fas fa-heart"
+          style="font-size: 20px; color: red; text-align: right"
+          (click)="addToWishlist(item)"
+          *ngIf="confirmRole()"
+        ></i>
+
+        <img src="/assets/{{ item.imageURL }}" alt="" />
+        <h5
+          style="
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100ch;
+          "
+        >
+          {{ item.name }}
+        </h5>
+        <p
+          style="
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100ch;
+          "
+        >
+          {{ item.description }}
+        </p>
+        <p><strong>Price:</strong>₹{{ item.price }}</p>
+        <button
+          *ngIf="confirmRole()"
+          class="btn btn-dark"
+          (click)="addtoCart(item)"
+        >
+          Add To Cart
+        </button>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+

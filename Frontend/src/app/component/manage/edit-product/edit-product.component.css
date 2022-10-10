@@ -1,0 +1,30 @@
+.editComponent{
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.data{
+  background-color: #F0F0F0;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+}
+
+form>input{
+  height: 45px;
+  padding: 1rem 1rem;
+  width: 500px;
+  margin-bottom: 10px;
+  border: none;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+form>input:disabled{
+  background-color: #cecccc;
+}

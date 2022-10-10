@@ -1,0 +1,47 @@
+<app-header (searchData)="onSearchRepeat($event)"></app-header>
+
+<div class="container">
+  <br /><br /><br /><br /><br />
+  <div class="row">
+    <ng-container *ngFor="let item of searchList">
+      <div class="card col-md-2">
+        <i
+          class="fas fa-heart"
+          style="font-size: 20px; color: red; text-align: right"
+          (click)="addToWishlist(item)"
+          *ngIf="confirmRole()"
+        ></i>
+
+        <img src="/assets/{{ item.imageURL }}" alt="" />
+        <h5
+          style="
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100ch;
+          "
+        >
+          {{ item.name }}
+        </h5>
+        <p
+          style="
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100ch;
+          "
+        >
+          {{ item.description }}
+        </p>
+        <p><strong>Price:</strong>₹{{ item.price }}</p>
+        <button
+          *ngIf="confirmRole()"
+          class="btn btn-dark"
+          (click)="addtoCart(item)"
+        >
+          Add To Cart
+        </button>
+      </div>
+    </ng-container>
+  </div>
+</div>

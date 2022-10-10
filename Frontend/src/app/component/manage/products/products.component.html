@@ -1,0 +1,245 @@
+<div class="btn-container">
+  <div class="text-test">
+    <h1><strong>Product Information</strong></h1>
+  </div>
+  <button
+    class="btn btn-success"
+    (click)="addButtonClicked()"
+    style="margin-top: 10px; margin-right: 10px"
+  >
+    Add new Product
+  </button>
+  <button
+    class="btn btn-success"
+    (click)="addMultipleButtonClicked()"
+    style="margin-top: 10px; margin-right: 10px"
+  >
+    Add mutiple Products
+  </button>
+  <button
+    class="btn btn-success"
+    (click)="getStocksButtonClicked(); getStocks()"
+    style="margin-top: 10px"
+  >
+    Get Product Stocks
+  </button>
+</div>
+
+<div
+  class="productcontainer"
+  *ngIf="
+    !addButtonClickedFlag &&
+    !addMultipleButtonClickedFlag &&
+    !getStocksButtonClickedFlag
+  "
+>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Sr. No.</th>
+        <th scope="col">Product Id</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Price</th>
+        <th scope="col">Stock</th>
+        <th scope="col">Image URL</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of retData; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ product.productId }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.description }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.stock }}</td>
+        <td>{{ product.imageURL }}</td>
+        <td>
+          <a>
+            <i
+              id="{{ product.productId }}"
+              class="btn btn-warning fas fa-user-edit edit"
+              (click)="editProduct($event)"
+              style="cursor: pointer"
+            ></i>
+          </a>
+        </td>
+        <td>
+          <a>
+            <i
+              id="{{ product.productId }}"
+              class="btn btn-danger material-icons"
+              style="color: red"
+              (click)="deleteProduct($event)"
+              style="cursor: pointer"
+              >delete</i
+            >
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="add-product-container" *ngIf="addButtonClickedFlag">
+  <div class="add-product-main-text">
+    <h2 style="text-align: center">Add Product</h2>
+  </div>
+  <div class="login-form">
+    <form [formGroup]="addProductForm" (ngSubmit)="addProduct()" name="form1">
+      <div class="form-group">
+        <label for="name">Product Name</label>
+        <input
+          formControlName="name"
+          type="text"
+          class="form-control"
+          required
+          minlength="4"
+          placeholder="Enter product name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="desc">Product Description</label>
+        <input
+          formControlName="desc"
+          type="text"
+          class="form-control"
+          required
+          minlength="4"
+          placeholder="Enter product desccription"
+        />
+      </div>
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input
+          formControlName="price"
+          type="text"
+          class="form-control"
+          required
+          minlength="4"
+          placeholder="Enter product price"
+        />
+      </div>
+      <div class="form-group">
+        <label for="category">Product Category</label>
+        <input
+          formControlName="category"
+          type="text"
+          class="form-control"
+          required
+          minlength="4"
+          placeholder="Enter product category"
+        />
+      </div>
+      <div class="form-group">
+        <label for="image">Product Image</label>
+        <input
+          formControlName="image"
+          type="text"
+          class="form-control"
+          required
+          minlength="4"
+          placeholder="Enter product image"
+        />
+      </div>
+      <div class="form-group">
+        <label for="stock">Stock</label>
+        <input
+          formControlName="stock"
+          type="text"
+          class="form-control"
+          required
+          minlength="4"
+          placeholder="Enter product stock"
+        />
+      </div>
+      <button type="submit" class="btn btn-success">Add</button>
+      <button
+        class="btn btn-danger"
+        routerLink="admin/manage/products"
+        (click)="cancelButtonClicked()"
+      >
+        Cancel
+      </button>
+    </form>
+  </div>
+</div>
+
+<div class="add-product-container" *ngIf="addMultipleButtonClickedFlag">
+  <div class="add-product-main-text">
+    <h2 style="text-align: center">Add Mutiple Products</h2>
+  </div>
+  <div class="login-form">
+    <form
+      [formGroup]="addMultipleProductsForm"
+      (ngSubmit)="addMultipleProducts()"
+      name="form1"
+    >
+      <div class="form-group">
+        <label for="name">Products CSV</label>
+        <input
+          formControlName="csv"
+          type="text"
+          class="form-control"
+          required
+          minlength="4"
+          placeholder="Enter product csv list"
+        />
+      </div>
+      <button type="submit" class="btn btn-success">Add</button>
+      <button
+        class="btn btn-danger"
+        routerLink="admin/manage/products"
+        (click)="cancelButtonClicked()"
+      >
+        Cancel
+      </button>
+    </form>
+  </div>
+</div>
+
+<div class="add-product-container" *ngIf="getStocksButtonClickedFlag">
+  <div class="add-product-main-text">
+    <h2 style="text-align: center">Get Stock Details</h2>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Sr. No.</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Stock count</th>
+        <th scope="col">Mail</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let stock of stocks; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ stock.productName }}</td>
+        <td>{{ stock.stock }}</td>
+        <td>
+          <a
+            ><i
+              class="btn btn-success fa fa-envelope"
+              style="cursor: pointer"
+              *ngIf="stock.stock > 20"
+              aria-disabled="true"
+              title="Sufficient Stock"
+            ></i
+          ></a>
+          <a
+            ><i
+              class="btn btn-danger fa fa-envelope"
+              (click)="mail()"
+              style="cursor: pointer"
+              *ngIf="stock.stock < 20"
+              aria-disabled="false"
+              title="Stock is less than 20"
+            ></i
+          ></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

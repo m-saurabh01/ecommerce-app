@@ -1,0 +1,23 @@
+.main{
+  display: flex;
+  justify-content: center;
+  /* margin-top: 50px; */
+}
+
+.content{
+  max-width: 600px;
+  padding: 70px;
+  margin-top: 90px;
+  background-color: #F0F0F0;
+  border-radius: 20px;
+}
+
+.loginbtn{
+  display: flex;
+  justify-content: center;
+}
+
+
+.btn{
+  padding: 10px 25px;
+}

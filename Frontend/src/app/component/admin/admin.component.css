@@ -1,0 +1,103 @@
+.productcontainer{
+  text-align: center;
+  width: 100%;
+  /* margin-top: 10px */
+  padding-top: 80px;
+}
+
+.text-test{
+  margin-top: 20px;
+}
+
+.button-row{
+  text-align: center;
+  width: 100%;
+  padding: 20px 0px 20px 0px;
+}
+
+.buttons{
+  margin-top: 50px;
+}
+
+.userscontainer{
+  text-align: center;
+  width: 100%;
+  margin-top: 10px
+}
+
+table {
+  table-layout: fixed;
+  width: 70%;
+  border-collapse: collapse;
+  border: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 5px 10px #888888;
+  border-radius: 5px;
+  border-collapse:separate;
+ 
+  
+}
+
+thead{
+  background-color: #0D6EFD;
+}
+
+th{
+  color: white;
+  text-align: center;
+  
+}
+
+thead th:nth-child(1) {
+  width: 10%;
+}
+
+thead th:nth-child(2) {
+  width: 10%;
+}
+
+thead th:nth-child(3) {
+  width: 30%;
+}
+
+thead th:nth-child(4) {
+  width: 25%;
+}
+
+thead th:nth-child(5) {
+  width: 25%;
+}
+
+th, td {
+  padding: 20px;
+}
+
+th {
+  letter-spacing: 2px;
+}
+
+td {
+  letter-spacing: 1px;
+}
+
+tbody{
+  border-radius: 10px;
+}
+
+tbody td {
+  text-align: center;
+}
+
+tfoot th {
+  text-align: right;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: rgb(248, 248, 248);
+}
+
+tbody tr:nth-child(even) {
+  background-color: #d7ecff;
+}
+

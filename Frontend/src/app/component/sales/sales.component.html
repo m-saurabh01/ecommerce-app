@@ -1,0 +1,25 @@
+<div class="reportcontainer">
+  <div class="text-test">
+    <h2><strong>Sales Report</strong></h2>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Sr. No.</th>
+        <th scope="col">orderID</th>
+        <th scope="col">customerID</th>
+        <th scope="col">orderValue</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let report of reports; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ report.orderID }}</td>
+        <td>{{ report.customerID }}</td>
+        <td>{{ report.orderValue }}</td>
+        <td>{{ report.date }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

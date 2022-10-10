@@ -1,0 +1,48 @@
+<header>
+  <div class="navbar bg-dark shadow-sm">
+    <div class="navbar-brand align-item-centre d-flex">
+      <i style="font-size: 30px; color: white; cursor: pointer;" class="fas fa-shipping-fast" routerLink="/home">&nbsp;
+      </i>
+      <strong style="font-size: 30px; color: white; cursor: pointer;" routerLink="/home">Shop For Home</strong>
+      <form [formGroup]="searchForm" (ngSubmit)="getProducts()" name="form4">
+        <div class=" formGroup btn-container">
+          <input type="text" formControlName="searchValue" class="form-control" placeholder="Search Products" />
+          <span class="fas fa-search search-icon" (click)="getProducts()" style="margin-right: 10px;"></span>
+          <span type="submit" style="margin-right: 1px"></span>
+        </div>
+      </form>
+    </div>
+
+    <button *ngIf="!confirmRole() && isLoggedIn()" routerLink="login" class="btn btn-admin" routerLink="/admin">
+      Go to Admin Console
+    </button>
+    <button *ngIf="!isLoggedIn()" routerLink="login" style="float: right; margin-right: 10%" class="btn btn-success">
+      Login
+    </button>
+    <button *ngIf="isLoggedIn()" routerLink="products" style="float: right; margin-right: 10%;margin-bottom: 20px;"
+      class="btn btn-danger" (click)="logout()">
+      Log out
+    </button>
+
+    <button routerLink="discount" class="btn btn-dark" *ngIf="confirmRole()">
+      <i class="fas fa-percentage" style="font-size: 36px; color: white" title="Discounts">
+        <div style="font-size: 10px" class="badge bg-danger">3</div>
+      </i>
+    </button>
+
+    <button routerLink="wishlist" class="btn btn-dark" *ngIf="confirmRole()">
+      <i style="font-size: 30px; color: white" class="fas fa-heart" title="Wishlist">
+        <div style="font-size: 10px" class="badge bg-danger">
+          {{ totalWishedItem }}
+        </div>
+      </i>
+    </button>
+    <button routerLink="cart" class="btn btn-dark" *ngIf="confirmRole()">
+      <i style="font-size: 30px; color: white" class="fas fa-cart-plus" title="Cart">
+        <div style="font-size: 10px" class="badge bg-danger">
+          {{ totalItem }}
+        </div>
+      </i>
+    </button>
+  </div>
+</header>

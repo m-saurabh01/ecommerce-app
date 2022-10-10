@@ -1,0 +1,25 @@
+<div class="main">
+  <div class="content col-md-6 col-sm-12">
+    <div class="login-main-text">
+      <h2 style="text-align:center">Login</h2>
+      <p style="text-align:center">Get access to your Orders, Wishlist and Recommendations.</p>
+    </div>
+    <div class="login-form">
+      <form class="form" [formGroup]="loginForm" (ngSubmit)="loginUser()" name="form1">
+        <div class="form-group">
+          <label for="userName">Username</label>
+          <input formControlName="userName" type="text" class="form-control" required  minlength="4" placeholder="Enter your username" />
+        </div>
+        <div class="form-group" style="margin-top:20px; margin-bottom:20px">
+          <label for="password">Password</label>
+          <input formControlName="password" type="password" class="form-control" required minlength="4" placeholder="Enter your password" />
+        </div>
+        <div class="loginbtn">
+          <button type="submit" class="btn" style="text-align: center; background-color: orangered; color: white" > Login </button>
+        </div>
+        <h2 style="text-align:center">OR</h2>
+        <a style="display: flex; justify-content: center" routerLink="/signup"> New here? Create an account </a>
+      </form>
+    </div>
+  </div>
+</div>

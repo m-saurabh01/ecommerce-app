@@ -1,0 +1,41 @@
+<div class="text-test">
+  <h1><strong>Users Information</strong></h1>
+</div>
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Sr. No.</th>
+        <th scope="col">User Id</th>
+        <th scope="col">User Name</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of retData; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ user.userId }}</td>
+        <td contenteditable>{{ user.username }}</td>
+        <td>
+          <i
+            id="{{ user.userId }}"
+            class="btn btn-warning fas fa-user-edit"
+            (click)="editUser($event)"
+            style="cursor: pointer"
+          ></i>
+        </td>
+        <td>
+          <i
+            id="{{ user.userId }}"
+            class="btn btn-danger material-icons"
+            style="color: red"
+            (click)="deleteUser($event)"
+            style="cursor: pointer"
+            >delete</i
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

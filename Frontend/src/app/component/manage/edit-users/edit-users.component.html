@@ -1,0 +1,12 @@
+<div class="editComponent" *ngIf="dataLoaded" >
+  <div class="data">
+    <h2>Edit User Details</h2>
+    <form [formGroup]="updateUserForm" (ngSubmit)="updateUser()" name="form1">
+      <input value="{{retData.userId}}" type="text" disabled />
+      <input formControlName="userName" value="{{retData.username}}" type="text" />
+      <input formControlName="password" value="{{retData.password}}" type="text" />
+      <input formControlName="role" value="{{retData.role}}" type="text" />
+      <button type="submit" class="btn btn-success" > Update </button>
+    </form>
+  </div>
+</div>
