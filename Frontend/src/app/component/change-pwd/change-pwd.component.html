@@ -1,0 +1,32 @@
+<div class="main">
+  <div class="container col-md-6 col-sm-12" style="align-content: center;background-color: rgb(230, 226, 226);padding: 40px;margin-bottom: 10px;">
+    <div class="login-main-text">
+      
+      <h2 style="text-align:center;padding-top: 18%;">Reset your password here</h2>
+    </div>
+    
+    <div class="login-form">
+      <form class="form" [formGroup]="loginForm" (ngSubmit)="pwdUser()" name="form1">
+        <div class="form-group">
+          <label for="userName">User Email</label>
+          <input formControlName="userName" type="text" class="form-control" required  minlength="4" placeholder="Enter your email" />
+        </div>
+        <div class="form-group" style="margin-top:20px; margin-bottom:20px">
+          <label for="password">Old Password</label>
+          <input formControlName="password" type="password" class="form-control" required minlength="4" placeholder="Enter your old password" />
+        </div>
+        <div class="form-group" style="margin-top:20px; margin-bottom:20px">
+          <label for="password">New Password</label>
+          <input formControlName="npassword" type="npassword" class="form-control" required minlength="4" placeholder="Enter your new password" />
+        </div>
+        <div class="loginbtn">
+          <button type="submit" class="btn" style="text-align: center; background-color: orangered; color: white" > Confirm </button>
+        </div>
+        
+      </form>
+    </div>
+    </div>
+    </div>
+
+
+

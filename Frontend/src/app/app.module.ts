@@ -24,6 +24,7 @@ import { DiscountComponent } from './component/discount/discount.component';
 import { SearchComponent } from './component/search/search.component';
 import {MatButtonModule} from '@angular/material/button';
 import { SalesComponent } from './component/sales/sales.component';
+import { ChangePwdComponent } from './component/change-pwd/change-pwd.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { SalesComponent } from './component/sales/sales.component';
     EditUsersComponent,
     DiscountComponent,
     SearchComponent,
-    SalesComponent
+    SalesComponent,
+    ChangePwdComponent
   ],
   imports: [
     BrowserModule,

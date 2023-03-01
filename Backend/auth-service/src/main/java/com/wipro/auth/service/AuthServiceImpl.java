@@ -44,6 +44,18 @@ public class AuthServiceImpl implements AuthService {
 			user.setRole("USER");
 		return authRepository.save(user).getUserId();
 	}
+	
+	@Override
+	public Role newPwd(String email,String opwd,String pwd) {
+		if(authRepository.findByUsername(email) != null) {
+			authRepository.findByUsername(email).setPassword(pwd);
+	}
+		if(authRepository.findByUsername(email).getUsername().isEmpty()||authRepository.findByUsername(email)==null) {
+			return null;	
+		}
+		authRepository.save(authRepository.findByUsername(email)).getUserId();
+		return new Role(authRepository.findByUsername(email).getRole());
+	}
 
 	@Override
 	public User getUser(String username) {

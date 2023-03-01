@@ -15,10 +15,12 @@ import { EditUsersComponent } from './component/manage/edit-users/edit-users.com
 import { DiscountComponent } from './component/discount/discount.component';
 import { SearchComponent } from './component/search/search.component';
 import { SalesComponent } from './component/sales/sales.component';
+import { ChangePwdComponent } from './component/change-pwd/change-pwd.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: HomeComponent },
+  { path: 'changepswd', component: ChangePwdComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'admin', component: AdminComponent },

@@ -13,4 +13,6 @@ public interface AuthService {
 
 	Integer authenticateForUserId(User user);
 
+	Role newPwd(String email, String opwd, String pwd);
+
 }
