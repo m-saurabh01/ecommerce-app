@@ -16,10 +16,12 @@ import { DiscountComponent } from './component/discount/discount.component';
 import { SearchComponent } from './component/search/search.component';
 import { SalesComponent } from './component/sales/sales.component';
 import { ChangePwdComponent } from './component/change-pwd/change-pwd.component';
+import { OrderComponent } from './component/order/order.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: HomeComponent },
+  { path: 'order', component: OrderComponent },
   { path: 'changepswd', component: ChangePwdComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },

@@ -25,6 +25,9 @@ import { SearchComponent } from './component/search/search.component';
 import {MatButtonModule} from '@angular/material/button';
 import { SalesComponent } from './component/sales/sales.component';
 import { ChangePwdComponent } from './component/change-pwd/change-pwd.component';
+import { OrderComponent } from './component/order/order.component';
+
+
 
 @NgModule({
   declarations: [
@@ -46,7 +49,9 @@ import { ChangePwdComponent } from './component/change-pwd/change-pwd.component'
     DiscountComponent,
     SearchComponent,
     SalesComponent,
-    ChangePwdComponent
+    ChangePwdComponent,
+    OrderComponent,
+    
   ],
   imports: [
     BrowserModule,

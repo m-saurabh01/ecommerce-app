@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder,Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+[x: string]: any;
   loginForm!: FormGroup;
   retData: any;
   userId:any;
@@ -21,8 +22,14 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      userName: [''],
-      password: [''],
+    userName: ['',[
+    Validators.required,
+    Validators.email]],
+      password: ['', [
+      Validators.required,
+      Validators.minLength(8),
+      Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$')
+    ]],
     });
   }
 

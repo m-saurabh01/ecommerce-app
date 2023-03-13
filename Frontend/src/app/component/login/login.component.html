@@ -1,25 +1,48 @@
+<div>
 <div class="main">
   <div class="content col-md-6 col-sm-12">
     <div class="login-main-text">
-      <h2 style="text-align:center">Login</h2>
-      <p style="text-align:center">Get access to your Orders, Wishlist and Recommendations.</p>
+      <h2 style="text-align: center">Login</h2>
+      <p style="text-align: center">
+        Get access to your Orders, Wishlist and Recommendations.
+      </p>
     </div>
-    <div class="login-form">
+     <div class="login-form">
       <form class="form" [formGroup]="loginForm" (ngSubmit)="loginUser()" name="form1">
         <div class="form-group">
-          <label for="userName">Username</label>
-          <input formControlName="userName" type="text" class="form-control" required  minlength="4" placeholder="Enter your username" />
+          <label for="userName">User Email</label>
+          <input formControlName="userName" type="text" class="form-control" required  minlength="4" placeholder="Enter your email" />
         </div>
         <div class="form-group" style="margin-top:20px; margin-bottom:20px">
           <label for="password">Password</label>
-          <input formControlName="password" type="password" class="form-control" required minlength="4" placeholder="Enter your password" />
+          <input formControlName="password" type="password" class="form-control" required minlength="4" placeholder="Enter your old password" />
         </div>
+        
         <div class="loginbtn">
-          <button type="submit" class="btn" style="text-align: center; background-color: orangered; color: white" > Login </button>
+          <button
+            type="submit"
+            class="btn"
+            style="
+              text-align: center;
+              margin-top: 40px;
+              background-color: orangered;
+              color: white;
+            "
+            [disabled]="loginForm.invalid"
+          >
+            Login
+          </button>
         </div>
-        <h2 style="text-align:center">OR</h2>
-        <a style="display: flex; justify-content: center" routerLink="/signup"> New here? Create an account </a>
+        <h2 style="text-align: center">OR</h2>
+        <a style="display: flex; justify-content: center" routerLink="/signup">
+          New here? Create an account
+        </a>
+        
       </form>
+    </div>
+
+        
+      
     </div>
   </div>
 </div>
