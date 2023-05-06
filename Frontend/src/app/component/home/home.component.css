@@ -42,7 +42,11 @@
   transition: 0.3 ease-in-out;
 }
 
-.card img:hover{
+.icon-con{
+  text-align: right;
+}
+
+.icon-con :hover{
   transition: 0.3 ease-in-out;
   transform: scale(1.1);
 }

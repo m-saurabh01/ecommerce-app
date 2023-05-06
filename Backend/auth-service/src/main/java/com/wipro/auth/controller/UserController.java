@@ -30,6 +30,12 @@ public class UserController {
 		return userService.getAllUsers();
 	}
 	
+	@GetMapping("/test")
+    public String test() {
+    	return "Test success";
+    }
+	
+	
 	@GetMapping("user")
 	public List<User> getUserById(@RequestParam Integer userId){
 		log.info("Getting user by id");

@@ -23,7 +23,7 @@ public class ProductServiceImpl implements ProductService {
 	
 	@Override
 	public List<Product> getAllProductsByCategory(String category){
-		return productRepository.findByCategory(category.toUpperCase());
+		return productRepository.findByCategory(category.toLowerCase());
 	}
 
 	@Override

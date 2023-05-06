@@ -44,8 +44,10 @@ export class CartService {
   }
 
   addToWishlist(product : any){
+    if(!this.wishList.includes(product)){
     this.wishList.push(product);
     this.productWishList.next(this.wishList)
+    }
     console.log("wishlsit",this.wishList)
   }
 
